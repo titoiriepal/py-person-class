@@ -15,9 +15,9 @@ class Person:
 def create_person_list(people: list) -> list:
     person_list = [Person(person["name"], person["age"]) for person in people]
     for person in people:
-        if "wife" in person and person["wife"] != None:
+        if person.get("wife"):
             person_list[people.index(person)].wife = Person.people[person["wife"]]
-        if "husband" in person and person["husband"] != None:
+        if person.get("husband"):
             person_list[people.index(person)].husband = Person.people[person["husband"]]
             
     return person_list
